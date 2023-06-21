@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1d1bbf26d8a744279918ba1282048cbd" Name="Diagram1">
+        <EntityTypeShape EntityType="KhranitelDbModel.Client" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="KhranitelDbModel.Department" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KhranitelDbModel.Division" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KhranitelDbModel.Employee" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KhranitelDbModel.Request" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KhranitelDbModel.Status" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KhranitelDbModel.Target" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KhranitelDbModel.Type" Width="1.5" PointX="3" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KhranitelDbModel.User" Width="1.5" PointX="3" PointY="20.5" IsExpanded="true" />
+        <AssociationConnector Association="KhranitelDbModel.FK_Request_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="KhranitelDbModel.FK_Employee_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="KhranitelDbModel.FK_Employee_Division" ManuallyRouted="false" />
+        <AssociationConnector Association="KhranitelDbModel.FK_Request_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="KhranitelDbModel.FK_Request_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="KhranitelDbModel.FK_Request_Target" ManuallyRouted="false" />
+        <AssociationConnector Association="KhranitelDbModel.FK_Request_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="KhranitelDbModel.FK_Request_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
