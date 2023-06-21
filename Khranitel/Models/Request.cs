@@ -25,6 +25,7 @@ namespace Khranitel.Models
         public int StatusId { get; set; }
         public Nullable<int> UserId { get; set; }
         public string DecReason { get; set; }
+        public Nullable<System.TimeSpan> Time { get; set; }
     
         public virtual Client Client { get; set; }
         public virtual Employee Employee { get; set; }

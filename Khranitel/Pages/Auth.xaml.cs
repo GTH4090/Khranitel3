@@ -33,7 +33,7 @@ namespace Khranitel.Pages
             if (Db.User.FirstOrDefault(el => el.Email == LoginTbx.Text) != null)
             {
                 var item = Db.User.FirstOrDefault(el => el.Email == LoginTbx.Text);
-                if(BCrypt.Net.BCrypt.Verify(PasswordTbx.Password, item.Password))
+                if (GetHash(PasswordTbx.Password) == item.Password)
                 {
                     AuthUs = item;
                     NavigationService.Navigate(new MainMenu());

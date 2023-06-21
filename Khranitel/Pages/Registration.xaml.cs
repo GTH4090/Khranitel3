@@ -48,11 +48,12 @@ namespace Khranitel.Pages
                     PasswordTbx.Password.Intersect(ll).Count() > 0 &&
                     PasswordTbx.Password.Intersect(ul).Count() > 0 &&
                     PasswordTbx.Password.Intersect(nums).Count() > 0 &&
-                    PasswordTbx.Password.Intersect(spec).Count() > 0)
+                    PasswordTbx.Password.Intersect(spec).Count() > 0 &&
+                    Db.User.FirstOrDefault(el => el.Email == LoginTbx.Text) == null)
                 {
                     User user = new User();
                     user.Email = LoginTbx.Text;
-                    user.Password = BCrypt.Net.BCrypt.HashPassword(PasswordTbx.Password);
+                    user.Password = GetHash(PasswordTbx.Password);
                     Db.User.Add(user);
                     Db.SaveChanges();
                     NavigationService.GoBack();

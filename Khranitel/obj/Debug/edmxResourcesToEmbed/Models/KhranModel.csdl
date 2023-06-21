@@ -71,6 +71,7 @@
     <NavigationProperty Name="Target" Relationship="Self.FK_Request_Target" FromRole="Request" ToRole="Target" />
     <NavigationProperty Name="Type" Relationship="Self.FK_Request_Type" FromRole="Request" ToRole="Type" />
     <NavigationProperty Name="User" Relationship="Self.FK_Request_User" FromRole="Request" ToRole="User" />
+    <Property Name="Time" Type="Time" Precision="7" />
   </EntityType>
   <EntityType Name="Status">
     <Key>

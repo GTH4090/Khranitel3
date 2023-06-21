@@ -92,6 +92,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\RequestList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Client.cs">
@@ -145,6 +149,9 @@
     <Compile Include="Pages\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\RequestList.xaml.cs">
+      <DependentUpon>RequestList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -170,6 +177,15 @@
       <DependentUpon>KhranModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Khranitel.Models.Client.datasource" />
+    <None Include="Properties\DataSources\Khranitel.Models.Department.datasource" />
+    <None Include="Properties\DataSources\Khranitel.Models.Division.datasource" />
+    <None Include="Properties\DataSources\Khranitel.Models.Employee.datasource" />
+    <None Include="Properties\DataSources\Khranitel.Models.Request.datasource" />
+    <None Include="Properties\DataSources\Khranitel.Models.Status.datasource" />
+    <None Include="Properties\DataSources\Khranitel.Models.Target.datasource" />
+    <None Include="Properties\DataSources\Khranitel.Models.Type.datasource" />
+    <None Include="Properties\DataSources\Khranitel.Models.User.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

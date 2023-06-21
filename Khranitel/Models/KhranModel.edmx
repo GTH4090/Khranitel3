@@ -64,6 +64,7 @@
           <Property Name="StatusId" Type="int" Nullable="false" />
           <Property Name="UserId" Type="int" />
           <Property Name="DecReason" Type="nvarchar(max)" />
+          <Property Name="Time" Type="time" Precision="7" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -308,6 +309,7 @@
           <NavigationProperty Name="Target" Relationship="Self.FK_Request_Target" FromRole="Request" ToRole="Target" />
           <NavigationProperty Name="Type" Relationship="Self.FK_Request_Type" FromRole="Request" ToRole="Type" />
           <NavigationProperty Name="User" Relationship="Self.FK_Request_User" FromRole="Request" ToRole="User" />
+          <Property Name="Time" Type="Time" Precision="7" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -538,6 +540,7 @@
           <EntitySetMapping Name="Request">
             <EntityTypeMapping TypeName="KhranitelDbModel.Request">
               <MappingFragment StoreEntitySet="Request">
+                <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="StartDate" ColumnName="StartDate" />
                 <ScalarProperty Name="EndDate" ColumnName="EndDate" />

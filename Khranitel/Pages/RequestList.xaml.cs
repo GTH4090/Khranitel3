@@ -12,32 +12,31 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Khranitel.Classes.Helper;
 
 namespace Khranitel.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainMenu.xaml
+    /// Логика взаимодействия для RequestList.xaml
     /// </summary>
-    public partial class MainMenu : Page
+    public partial class RequestList : Page
     {
-        public MainMenu()
+        public RequestList()
         {
             InitializeComponent();
         }
 
-        private void RequesListBtn_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new RequestList());
-        }
-
-        private void RequestBtn_Click(object sender, RoutedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void GruopBtn_Click(object sender, RoutedEventArgs e)
-        {
-
+            try
+            {
+                requestDataGrid.ItemsSource = Db.Request.ToList();
+            }
+            catch (Exception ex)
+            {
+                Error(ex.Message);
+            }
         }
     }
 }

@@ -52,6 +52,7 @@
     <EntitySetMapping Name="Request">
       <EntityTypeMapping TypeName="KhranitelDbModel.Request">
         <MappingFragment StoreEntitySet="Request">
+          <ScalarProperty Name="Time" ColumnName="Time" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />

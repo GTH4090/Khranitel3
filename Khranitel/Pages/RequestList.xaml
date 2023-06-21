@@ -1,0 +1,31 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Khranitel.Pages"
+      xmlns:Models="clr-namespace:Khranitel.Models" x:Class="Khranitel.Pages.RequestList"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Список заявок" Loaded="Page_Loaded">
+
+    <Page.Resources>
+        <CollectionViewSource x:Key="requestViewSource" d:DesignSource="{d:DesignInstance {x:Type Models:Request}}"/>
+    </Page.Resources>
+
+    <Grid DataContext="{StaticResource requestViewSource}">
+
+        <DataGrid x:Name="requestDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="decReasonColumn" Binding="{Binding DecReason}" Header="Dec Reason" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="endDateColumn" Binding="{Binding EndDate}" Header="End Date" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="startDateColumn" Binding="{Binding StartDate}" Header="Start Date" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="statusIdColumn" Binding="{Binding Status.Name}" Header="Status Id" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="timeColumn" Binding="{Binding Time}" Header="Time" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="typeIdColumn" Binding="{Binding Type.Name}" Header="Type Id" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="DivisionColumn" Binding="{Binding Employee.Division.Name}" Header="Division" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>
