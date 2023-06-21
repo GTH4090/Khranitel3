@@ -1,0 +1,168 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Khranitel.Pages"
+      xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+      xmlns:Models="clr-namespace:Khranitel.Models" x:Class="Khranitel.Pages.RequestForm"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="800"
+      Title="Создание заявки" Loaded="Page_Loaded">
+
+    <Page.Resources>
+        <CollectionViewSource x:Key="clientViewSource" d:DesignSource="{d:DesignInstance {x:Type Models:Client}}"/>
+    </Page.Resources>
+
+    <Grid x:Name="RequestGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Форма записи на посещение мероприятия" HorizontalAlignment="Center" Height="Auto" Width="Auto" Grid.ColumnSpan="3" FontSize="20"/>
+
+
+        <Border Grid.Row="1" Background="Orange" CornerRadius="13" Margin="5">
+            <Label Content="Информация для пропуска" Width="Auto"/>
+        </Border>
+        <Border Grid.Row="2" Background="LightGray" CornerRadius="13" Margin="5, 0">
+            <StackPanel Orientation="Vertical">
+                <Label Width="Auto" Content="Срок действия заявки:"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label Content="С*:" Width="auto"/>
+                    <DatePicker x:Name="FromDp" Width="100" SelectedDate="{Binding StartDate}" SelectedDateChanged="FromDp_SelectedDateChanged"/>
+                    <Label Content="по" Width="auto"/>
+                    <DatePicker x:Name="ToDp" Width="100" SelectedDate="{Binding EndDate}"/>
+                </StackPanel>
+                <Label Content="Цель посещения:" HorizontalAlignment="Center" Width="Auto"/>
+                <ComboBox x:Name="TargetCbx" DisplayMemberPath="Name" SelectedItem="{Binding Target}"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Background="Orange" CornerRadius="13" Margin="5">
+            <Label Content="Принимающая сторона" Width="Auto"/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Background="LightGray" CornerRadius="13" Margin="5, 0">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Подразделение*:" Width="Auto" HorizontalAlignment="Left"/>
+                <ComboBox x:Name="DivisionCbx" HorizontalAlignment="Stretch" DisplayMemberPath="Name" Width="Auto" SelectionChanged="DivisionCbx_SelectionChanged"/>
+                <Label Content="ФИО*:" Width="Auto" HorizontalAlignment="Left"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox x:Name="EmployeeCbx" HorizontalAlignment="Stretch" DisplayMemberPath="FullName" SelectedItem="{Binding Employee}" Width="Auto"/>
+                    <Image Grid.Column="1" Source="/Images/User.jpg" Width="30"/>
+
+                </Grid>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="3"  Grid.ColumnSpan="3" Background="Orange" CornerRadius="13" Margin="5">
+            <Label Content="Информация о посетителе" Width="Auto"/>
+        </Border>
+        <Border Grid.Row="4" Grid.ColumnSpan="3" Background="LightGray" CornerRadius="13" Margin="5, 0">
+            <StackPanel Orientation="Horizontal">
+
+                <Grid x:Name="ClientGrid" DataContext="{StaticResource clientViewSource}" HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Content="Дата рождения:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                    <DatePicker x:Name="birthDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding BirthDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
+                    <Label Grid.Column="0" Content="E-mail:" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                    <TextBox x:Name="emailTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="1" Text="{Binding Email, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                    <Label Grid.Column="0" Content="Имя*:" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                    <TextBox x:Name="firstNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="2" Text="{Binding FirstName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                    <Label Grid.Column="0" Content="Примечание:" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                    <TextBox x:Name="remarkTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="3" Text="{Binding Remark, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                    <Label Grid.Column="0" Content="Фамилия*:" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                    <TextBox x:Name="lastNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="4" Text="{Binding LastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                    <Label Grid.Column="2" Content="Организация:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="organisationTextBox" Grid.Column="3" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="0" Text="{Binding Organisation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                    <Label Grid.Column="2" Content="Номер:" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                    <WindowsFormsHost Grid.Column="3" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="1" VerticalAlignment="Center" Width="120">
+                        <wf:MaskedTextBox x:Name="passportNumTextBox" Mask="000000"/>
+                    </WindowsFormsHost>
+                   
+                    <Label Grid.Column="2" Content="Серия:" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                    <WindowsFormsHost Grid.Column="3" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="2" VerticalAlignment="Center" Width="120">
+                        <wf:MaskedTextBox x:Name="passportSerialTextBox" Mask="0000"/>
+                    </WindowsFormsHost>
+                    
+                    <Label Grid.Column="2" Content="Отчество*:" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                    <TextBox x:Name="patronomicTextBox" Grid.Column="3" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="3" Text="{Binding Patronomic, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                    <Label Grid.Column="2" Content="Телефон:" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                    <WindowsFormsHost Grid.Column="3" HorizontalAlignment="Left" Grid.Row="4" Height="NaN" Margin="3" Width="120" VerticalAlignment="Center">
+                        <wf:MaskedTextBox x:Name="phoneTextBox" Mask="+7 (000) 000-00-00"  Width="120"></wf:MaskedTextBox>
+                    </WindowsFormsHost>
+                    
+                    
+                </Grid>
+
+                <StackPanel Orientation="Vertical" Margin="50, 0" VerticalAlignment="Center">
+                    <Image Width="80" Source="/Images/User.jpg" x:Name="ClientImg"/>
+                    <Button x:Name="PhotoBtn" Content="Загрузить фото" Click="PhotoBtn_Click" Background="White">
+                        <Button.BorderBrush>
+                            <SolidColorBrush Color="Orange"/>
+                            
+                        </Button.BorderBrush>
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="7"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="5" Background="Orange" Grid.ColumnSpan="2" Height="30" CornerRadius="13" Margin="5">
+            <Label Content="Прикрепляемые документы" Width="Auto"/>
+        </Border>
+        <Border Grid.Row="6" Grid.ColumnSpan="2" Background="LightGray" CornerRadius="13" Margin="5, 0">
+            <StackPanel Orientation="Vertical">
+                <Button x:Name="DoscBtn" Content="Прикрепить файл" Click="DoscBtn_Click" HorizontalAlignment="Left" Background="LightGray"/>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Right">
+            <Button x:Name="ClearBtn" Content="Очистить форму" Click="ClearBtn_Click" Background="Transparent"/>
+            <Button x:Name="OkBtn" Content="Оформить заявку" Click="OkBtn_Click" Background="White">
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="Orange"/>
+
+                </Button.BorderBrush>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="7"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

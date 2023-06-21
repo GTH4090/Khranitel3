@@ -33,3 +33,5 @@ E:\HACKERMAN\Repos\Khranitel\Khranitel\obj\Debug\Pages\MainMenu.baml
 E:\HACKERMAN\Repos\Khranitel\Khranitel\obj\Debug\Pages\Registration.baml
 E:\HACKERMAN\Repos\Khranitel\Khranitel\obj\Debug\Pages\RequestList.g.cs
 E:\HACKERMAN\Repos\Khranitel\Khranitel\obj\Debug\Pages\RequestList.baml
+E:\HACKERMAN\Repos\Khranitel\Khranitel\obj\Debug\Pages\RequestForm.g.cs
+E:\HACKERMAN\Repos\Khranitel\Khranitel\obj\Debug\Pages\RequestForm.baml

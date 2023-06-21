@@ -32,7 +32,7 @@ namespace Khranitel.Pages
 
         private void RequestBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new RequestForm());
         }
 
         private void GruopBtn_Click(object sender, RoutedEventArgs e)
