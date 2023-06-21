@@ -176,6 +176,7 @@ namespace Khranitel.Pages
                 {
                     Db.Request.Add(RequestGrid.DataContext as Request);
                     Db.SaveChanges();
+                    NavigationService.GoBack();
                 }
             }
             catch (Exception ex)
