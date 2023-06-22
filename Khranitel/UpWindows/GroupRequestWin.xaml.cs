@@ -149,7 +149,7 @@ namespace Khranitel.UpWindows
                 (ClientGrid.DataContext as Client).PassportNum = passportNumTextBox.Text;
                 (ClientGrid.DataContext as Client).Phone = phoneTextBox.Text;
                 (RequestGrid.DataContext as Request).Client = ClientGrid.DataContext as Client;
-                if (emailTextBox.Text.Split('@').Count() == 2 && emailTextBox.Text[0] != '@' && emailTextBox.Text[emailTextBox.Text.Length - 1] != '@')
+                if (emailTextBox.Text.Split('@').Count() == 2 && emailTextBox.Text[0] != '@' && emailTextBox.Text[emailTextBox.Text.Length - 1] != '@' && ClientsDg.Items.Count >= 4)
                 {
                     Db.Request.Add(RequestGrid.DataContext as Request);
                     Db.SaveChanges();
