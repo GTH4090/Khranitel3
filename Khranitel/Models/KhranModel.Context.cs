@@ -34,5 +34,6 @@ namespace Khranitel.Models
         public virtual DbSet<Target> Target { get; set; }
         public virtual DbSet<Type> Type { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<ClientRequest> ClientRequest { get; set; }
     }
 }

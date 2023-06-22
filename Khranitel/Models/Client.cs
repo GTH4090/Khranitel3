@@ -18,6 +18,7 @@ namespace Khranitel.Models
         public Client()
         {
             this.Request = new HashSet<Request>();
+            this.ClientRequest = new HashSet<ClientRequest>();
         }
     
         public int Id { get; set; }
@@ -36,5 +37,7 @@ namespace Khranitel.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Request> Request { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ClientRequest> ClientRequest { get; set; }
     }
 }

@@ -18,6 +18,7 @@
     <Property Name="DocsImg" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="Request" Relationship="Self.FK_Request_Client" FromRole="Client" ToRole="Request" />
+    <NavigationProperty Name="ClientRequest" Relationship="KhranitelDbModel.FK_ClientRequest_Client" FromRole="Client" ToRole="ClientRequest" />
   </EntityType>
   <EntityType Name="Department">
     <Key>
@@ -72,6 +73,7 @@
     <NavigationProperty Name="Type" Relationship="Self.FK_Request_Type" FromRole="Request" ToRole="Type" />
     <NavigationProperty Name="User" Relationship="Self.FK_Request_User" FromRole="Request" ToRole="User" />
     <Property Name="Time" Type="Time" Precision="7" />
+    <NavigationProperty Name="ClientRequest" Relationship="KhranitelDbModel.FK_ClientRequest_Request" FromRole="Request" ToRole="ClientRequest" />
   </EntityType>
   <EntityType Name="Status">
     <Key>
@@ -244,5 +246,48 @@
       <End Role="User" EntitySet="User" />
       <End Role="Request" EntitySet="Request" />
     </AssociationSet>
+    <EntitySet Name="ClientRequest" EntityType="KhranitelDbModel.ClientRequest" />
+    <AssociationSet Name="FK_ClientRequest_Client" Association="KhranitelDbModel.FK_ClientRequest_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="ClientRequest" EntitySet="ClientRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientRequest_Request" Association="KhranitelDbModel.FK_ClientRequest_Request">
+      <End Role="Request" EntitySet="Request" />
+      <End Role="ClientRequest" EntitySet="ClientRequest" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="ClientRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientId" Type="Int32" Nullable="false" />
+    <Property Name="RequestId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="KhranitelDbModel.FK_ClientRequest_Client" FromRole="ClientRequest" ToRole="Client" />
+    <NavigationProperty Name="Request" Relationship="KhranitelDbModel.FK_ClientRequest_Request" FromRole="ClientRequest" ToRole="Request" />
+  </EntityType>
+  <Association Name="FK_ClientRequest_Client">
+    <End Type="KhranitelDbModel.Client" Role="Client" Multiplicity="1" />
+    <End Type="KhranitelDbModel.ClientRequest" Role="ClientRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClientRequest">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientRequest_Request">
+    <End Type="KhranitelDbModel.Request" Role="Request" Multiplicity="1" />
+    <End Type="KhranitelDbModel.ClientRequest" Role="ClientRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Request">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClientRequest">
+        <PropertyRef Name="RequestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

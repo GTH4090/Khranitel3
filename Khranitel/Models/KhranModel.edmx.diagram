@@ -22,6 +22,9 @@
         <AssociationConnector Association="KhranitelDbModel.FK_Request_Target" ManuallyRouted="false" />
         <AssociationConnector Association="KhranitelDbModel.FK_Request_Type" ManuallyRouted="false" />
         <AssociationConnector Association="KhranitelDbModel.FK_Request_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="KhranitelDbModel.ClientRequest" Width="1.5" PointX="7.5" PointY="6.625" />
+        <AssociationConnector Association="KhranitelDbModel.FK_ClientRequest_Client" />
+        <AssociationConnector Association="KhranitelDbModel.FK_ClientRequest_Request" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

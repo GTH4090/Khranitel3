@@ -14,6 +14,12 @@ namespace Khranitel.Models
     
     public partial class Request
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Request()
+        {
+            this.ClientRequest = new HashSet<ClientRequest>();
+        }
+    
         public int Id { get; set; }
         public System.DateTime StartDate { get; set; }
         public System.DateTime EndDate { get; set; }
@@ -33,5 +39,7 @@ namespace Khranitel.Models
         public virtual Target Target { get; set; }
         public virtual Type Type { get; set; }
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ClientRequest> ClientRequest { get; set; }
     }
 }

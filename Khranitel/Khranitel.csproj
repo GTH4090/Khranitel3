@@ -72,6 +72,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Client.cs" />
+    <Compile Include="Models\ClientRequest.cs">
+      <DependentUpon>KhranModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UpWindows\GroupRequestWin.xaml.cs">
+      <DependentUpon>GroupRequestWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpWindows\RequestWin.xaml.cs">
+      <DependentUpon>RequestWin.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -103,6 +113,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\RequestList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpWindows\GroupRequestWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpWindows\RequestWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

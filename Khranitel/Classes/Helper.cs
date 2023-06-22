@@ -15,6 +15,8 @@ namespace Khranitel.Classes
 
         public static User AuthUs = null;
 
+        public static Window ReqWin = null;
+
         public static void Error(string message)
         {
             MessageBox.Show(message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);

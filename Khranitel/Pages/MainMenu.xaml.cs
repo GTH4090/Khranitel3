@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Khranitel.UpWindows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,12 +33,14 @@ namespace Khranitel.Pages
 
         private void RequestBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new RequestForm());
+            RequestWin requestWin = new RequestWin();
+            requestWin.ShowDialog();
         }
 
         private void GruopBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            GroupRequestWin requestWin = new GroupRequestWin();
+            requestWin.ShowDialog();
         }
     }
 }
