@@ -31,16 +31,6 @@ namespace Khranitel.Pages
             NavigationService.Navigate(new RequestList());
         }
 
-        private void RequestBtn_Click(object sender, RoutedEventArgs e)
-        {
-            RequestWin requestWin = new RequestWin();
-            requestWin.ShowDialog();
-        }
-
-        private void GruopBtn_Click(object sender, RoutedEventArgs e)
-        {
-            GroupRequestWin requestWin = new GroupRequestWin();
-            requestWin.ShowDialog();
-        }
+        
     }
 }

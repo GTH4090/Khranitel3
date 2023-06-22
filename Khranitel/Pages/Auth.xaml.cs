@@ -30,20 +30,16 @@ namespace Khranitel.Pages
 
         private void AuthBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (Db.User.FirstOrDefault(el => el.Email == LoginTbx.Text) != null)
+            if (Db.Employee.FirstOrDefault(el => el.Code == LoginTbx.Text) != null)
             {
-                var item = Db.User.FirstOrDefault(el => el.Email == LoginTbx.Text);
-                if (GetHash(PasswordTbx.Password) == item.Password)
+                var item = Db.Employee.FirstOrDefault(el => el.Code == LoginTbx.Text);
+                if (item.DepartmentId == 1)
                 {
-                    AuthUs = item;
                     NavigationService.Navigate(new MainMenu());
                 }
             }
         }
 
-        private void RegBtn_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Registration());
-        }
+        
     }
 }

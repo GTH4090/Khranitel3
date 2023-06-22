@@ -9,11 +9,13 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Список заявок" Loaded="Page_Loaded">
 
-    <Page.Resources>
-        <CollectionViewSource x:Key="requestViewSource" d:DesignSource="{d:DesignInstance {x:Type Models:Request}}"/>
-    </Page.Resources>
+    
 
-    <Grid DataContext="{StaticResource requestViewSource}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
         <DataGrid x:Name="requestDataGrid" IsReadOnly="True" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
@@ -27,5 +29,17 @@
             </DataGrid.Columns>
         </DataGrid>
 
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+            <GroupBox Header="Тип">
+                <ComboBox x:Name="TypeCbx" DisplayMemberPath="Name" SelectionChanged="TypeCbx_SelectionChanged"/>
+            </GroupBox>
+            <GroupBox Header="Статус">
+                <ComboBox x:Name="StatusCbx" DisplayMemberPath="Name" SelectionChanged="StatusCbx_SelectionChanged"/>
+            </GroupBox>
+            <GroupBox Header="Подразделения">
+                <ComboBox x:Name="DivisionCbx" DisplayMemberPath="Name" SelectionChanged="DivisionCbx_SelectionChanged"/>
+            </GroupBox>
+        </StackPanel>
+        
     </Grid>
 </Page>

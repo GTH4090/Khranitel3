@@ -11,8 +11,7 @@
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button x:Name="RequesListBtn" Content="Просмотр заявок" Click="RequesListBtn_Click"/>
-            <Button x:Name="RequestBtn" Content="Подать личн. заявку" Click="RequestBtn_Click"/>
-            <Button x:Name="GruopBtn" Content="Подать груп. заявку" Click="GruopBtn_Click"/>
+            
         </StackPanel>
     </Grid>
 </Page>

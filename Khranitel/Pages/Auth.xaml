@@ -11,15 +11,12 @@
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
-                <Label Content="Логин"/>
+                <Label Content="Код"/>
                 <TextBox x:Name="LoginTbx"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Пароль"/>
-                <PasswordBox x:Name="PasswordTbx"/>
-            </StackPanel>
+            
             <Button x:Name="AuthBtn" Content="Войти" Click="AuthBtn_Click"/>
-            <Button x:Name="RegBtn" Content="Регистрация" Click="RegBtn_Click"/>
+            
         </StackPanel>
     </Grid>
 </Page>
